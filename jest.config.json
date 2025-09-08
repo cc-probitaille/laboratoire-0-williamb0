@@ -1,0 +1,14 @@
+{
+  "preset": "ts-jest",
+  "testEnvironment": "jest-environment-node",
+  "setupFilesAfterEnv": ["jest-extended/all"],
+  "collectCoverageFrom": ["src/**/*.ts"],
+  "coveragePathIgnorePatterns": ["index.ts","express-flash-plus.d.ts"],
+  "transform": {
+    "^.+\\.tsx?$": ["ts-jest", 
+      { "diagnostics:": true, 
+        "isolatedModules": true,
+        "tsconfig": "./tsconfig.json" }
+    ]
+  }
+}

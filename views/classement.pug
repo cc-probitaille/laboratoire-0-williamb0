@@ -1,0 +1,19 @@
+html
+  head
+    title= title
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+    link(rel='stylesheet' href='/css/style.css')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+  body
+
+    div.container
+      h1 Classement des joueurs
+      //- ASTUCES: 
+      //- Inspirez-vous de la liste des joueurs dans index.pug 
+      //- C'est une bonne utilisation de Array.prototype.map() pour ajouter le ratio aux objets joueurs https://stackoverflow.com/a/44407980/1168342
+      //- Vous devriez trier la liste par ratio, puis afficher ce ratio, le nombre de tentatives et le nombre de tentatives gagnées
+      //- Il est possible de trier une liste dans PUG, p.ex. https://stackoverflow.com/a/44058939/1168342
+      //- Il n'est pas nécessaire de calculer le ratio ou trier des objets dans le serveur
+      //- Puisqu'il s'agit d'une "vue" sur les informations, il n'y a pas de logique d'affaires.
+
+    //- ne pas recharger les Script, car le résultat de ce PUG est placé avec "document.write"
