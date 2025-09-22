@@ -51,30 +51,33 @@ export class JeuRouter {
     }
   }
 
-  /**
-   * jouer une fois aux dés
-   */
-  public jouer(req: Request, res: Response, next: NextFunction) {
-    const nom = req.params.nom;
-    try {
-      // Invoquer l'opération système (du DSS) dans le contrôleur GRASP
-      const resultat = this._controleurJeu.jouer(nom);
-      const resultatObj = JSON.parse(resultat);
-      // flash un message selon le résultat
-      const key = resultatObj.somme == 7 ? 'win' : 'info';
-      req.flash(key,
-        `Résultat pour ${nom}: ${resultatObj.v1} + ${resultatObj.v2} = ${resultatObj.somme}`);
-      res.status(200)
-        .send({
-          message: 'Success',
-          status: res.status,
-          resultat
-        });
-    } catch (error) {
-      // console.error(error);
-      this._errorCode500(error, req, res);
-    }
+/**
+ * jouer une fois aux dés (3 dés)
+ */
+public jouer(req: Request, res: Response, next: NextFunction) {
+  const nom = req.params.nom;
+  try {
+    const resultat = this._controleurJeu.jouer(nom);
+    const resultatObj = JSON.parse(resultat);
+
+    const key = resultatObj.somme <= 10 ? 'win' : 'info';
+    req.flash(
+      key,
+      `Résultat pour ${nom}: ${resultatObj.v1} + ${resultatObj.v2} + ${resultatObj.v3} = ${resultatObj.somme} ` +
+      `${resultatObj.somme <= 10 ? 'Gagné!' : 'Perdu.'}`
+    );
+
+    res.status(200)
+      .send({
+        message: 'Success',
+        status: res.status,
+        resultat
+      });
+  } catch (error) {
+    this._errorCode500(error, req, res);
   }
+}
+
 
   private _errorCode500(error: any, req: Request, res: Response<any, Record<string, any>>) {
     req.flash('error', error.message);

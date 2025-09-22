@@ -11,7 +11,6 @@ const testNom2 = 'Bob';
 describe('GET /api/v1/jeu/redemarrerJeu', () => {
 
   beforeAll(async () => {
-    // créer deux joueurs avant de tester le redémarrage
     await request.post('/api/v1/jeu/demarrerJeu').send({ nom: testNom1 });
     await request.post('/api/v1/jeu/demarrerJeu').send({ nom: testNom2 });
   });
@@ -23,10 +22,18 @@ describe('GET /api/v1/jeu/redemarrerJeu', () => {
   });
 
   it('devrait supprimer toutes les instances de Joueur en cours (postcondition)', async () => {
-    // accéder directement au contrôleur pour vérifier la postcondition
     const joueursJSON = jeuRoutes.controleurJeu.joueurs;
     const joueursArray = JSON.parse(joueursJSON);
     expect(joueursArray.length).toBe(0);
+  });
+
+  it('devrait retourner 404 si on joue après redemarrerJeu', async () => {
+    await request.get('/api/v1/jeu/redemarrerJeu');
+
+    const response = await request.get('/api/v1/jeu/jouer/' + testNom1);
+    expect(response.status).toBe(404);
+    expect(response.body.error).toInclude("n'existe pas");
+    expect(response.body.error).toInclude(testNom1);
   });
 
 });

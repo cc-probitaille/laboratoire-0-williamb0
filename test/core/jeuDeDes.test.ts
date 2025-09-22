@@ -1,34 +1,33 @@
 import 'jest-extended';
 import { JeuDeDes } from '../../src/core/jeuDeDes';
 
-describe('JeuDeDesTest', () => {
+describe('JeuDeDesTest (3 dés)', () => {
   let jdd: JeuDeDes;
-  beforeEach(async () => {
+
+  beforeEach(() => {
     jdd = new JeuDeDes();
   });
 
-  it(`devrait n'avoir aucun joueur au début`, async () => {
-    expect(jdd.joueurs).toEqual("[]")
-  })
+  it(`devrait n'avoir aucun joueur au début`, () => {
+    expect(jdd.joueurs).toEqual("[]");
+  });
 
-  it('devrait retourner une valeur entre 2 et 12', () => {
+  it('brasser() devrait retourner une valeur entre 3 et 18', () => {
     for (let i = 0; i < 200; i++) {
-      expect(jdd.brasser()).toBeWithin(2, 13);
+      expect(jdd.brasser()).toBeWithin(3, 19);
     }
-  })
+  });
 
-  it('devrait retourner finalement toutes les valeurs entre 2 et 12', () => {
-    const resultats = new Set();
-    for (let i = 0; i < 200; i++) {
-      resultats.add(jdd.brasser())
+  it('brasser() devrait produire toutes les valeurs de 3 à 18 après suffisamment de lancers', () => {
+    const resultats = new Set<number>();
+    for (let i = 0; i < 2000; i++) { // beaucoup d'essais pour les valeurs rares
+      resultats.add(jdd.brasser());
     }
-    expect(resultats.size).toBe(11);
-    for (let i = 1; i < 12; i++) {
-      expect(resultats.has(i + 1)).toBeTrue();
+    for (let somme = 3; somme <= 18; somme++) {
+      expect(resultats.has(somme)).toBeTrue();
     }
-    // cas particuliers
-    expect(resultats.has(1)).toBeFalsy();
-    expect(resultats.has(13)).toBeFalsy();
-  })
-
+    // valeurs impossibles
+    expect(resultats.has(2)).toBeFalse();
+    expect(resultats.has(19)).toBeFalse();
+  });
 });
