@@ -74,15 +74,15 @@ Vous pouvez cocher chaque étape dans la liste suivante:
 
 ### 0. préparer votre machine pour ce tutoriel;
 
-- [ ] jeter un œil sur la [documentation du squelette](docs/Squelette.md)
+- [x] jeter un œil sur la [documentation du squelette](docs/Squelette.md)
 
-- [ ] [installer node.js](https://nodejs.org/en/download/) sur votre machine
+- [x] [installer node.js](https://nodejs.org/en/download/) sur votre machine
 
-- [ ] [installer VSCode](https://code.visualstudio.com/Download) sur votre machine
+- [x] [installer VSCode](https://code.visualstudio.com/Download) sur votre machine
 
-- [ ] [installer l'extension PlantUML dans VSCode](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml)
+- [x] [installer l'extension PlantUML dans VSCode](https://marketplace.visualstudio.com/items?itemName=jebbs.plantuml)
 
-- [ ] configurer l'extension PlantUML pour utiliser plantuml.com comme serveur en ajoutant/modifiant les "User settings" en VSCode:
+- [x] configurer l'extension PlantUML pour utiliser plantuml.com comme serveur en ajoutant/modifiant les "User settings" en VSCode:
 
   ```json
       "plantuml.server": "https://www.plantuml.com/plantuml",
@@ -91,14 +91,14 @@ Vous pouvez cocher chaque étape dans la liste suivante:
 
   (Si vous avez les droits d'administrateur Windows) installer [GraphViz](http://www.graphviz.org/download/) pour utiliser un serveur local de PlantUML plutôt que le serveur sur Internet et configurer `"plantuml.render": "Local"` selon la [documentation](https://github.com/qjebbs/vscode-plantuml#about-render).
 
-- [ ] [installer GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop) sur votre machine
+- [x] [installer GitHub Desktop](https://docs.github.com/en/desktop/installing-and-configuring-github-desktop/installing-and-authenticating-to-github-desktop/installing-github-desktop) sur votre machine
 
-- [ ] [cloner](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) le dépôt de code de ce laboratoire sur votre machine
+- [x] [cloner](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) le dépôt de code de ce laboratoire sur votre machine
 
   - :warning: Ne pas cloner le code dans un chemin qui contient des espaces ou des accents.
   - Facultatif : Lire cette [Présentation de GitHub dans Visual Studio Code](https://learn.microsoft.com/fr-ca/training/modules/introduction-to-github-visual-studio-code/) de Microsoft. 
 
-- [ ] faire un build du code
+- [x] faire un build du code
 
   - Ouvrir le dossier du projet en VSCode **File > Open Folder...**
 
@@ -123,7 +123,7 @@ Vous pouvez cocher chaque étape dans la liste suivante:
     ...
     ```
 
-- [ ] exécuter les tests
+- [x] exécuter les tests
 
   - Dans le terminal, taper `npx jest --colors lab0.test.ts` pour exécuter les tests du lab 0.
 
@@ -230,11 +230,11 @@ Vous pouvez cocher chaque étape dans la liste suivante:
 
     Une croix (rouge), p. ex. `× devrait trouver votre nom` signifie qu'un test échoue, tandis qu'un test réussi s'affiche avec une coche `√` (verte).
 
-- [ ] exécuter le serveur sur localhost
+- [x] exécuter le serveur sur localhost
 
   - Dans le terminal, `npm start`
 
-- [ ] exécuter l'application avec un navigateur moderne à l'URL [http://localhost:3000](http://localhost:3000)
+- [x] exécuter l'application avec un navigateur moderne à l'URL [http://localhost:3000](http://localhost:3000)
   - [ ] démarrer une partie avec un joueur
   - [ ] essayer le bouton pour jouer
   - [ ] regarder la page Classement
